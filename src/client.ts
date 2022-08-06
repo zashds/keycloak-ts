@@ -839,7 +839,7 @@ export class KeycloakClient implements KeycloakInstance {
     });
   }
 
-  private setToken(
+  public setToken(
     token: string | null,
     refreshToken: string | null,
     idToken: string | null,
