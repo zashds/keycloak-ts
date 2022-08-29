@@ -271,6 +271,12 @@ export interface KeycloakAdapter {
 
   login(options?: KeycloakLoginOptions): Promise<void>;
 
+  loginWithPasswordGrant(
+    username: string,
+    password: string,
+    scope?: string
+  ): Promise<void>;
+
   logout(options?: KeycloakLogoutOptions): Promise<void>;
 
   register(options?: KeycloakRegisterOptions): Promise<void>;
@@ -585,6 +591,12 @@ export interface KeycloakInstance {
    */
   login(options?: KeycloakLoginOptions): Promise<void>;
 
+  loginWithPasswordGrant(
+    username: string,
+    password: string,
+    scope?: string
+  ): Promise<void>;
+
   /**
    * Redirects to logout.
    * @param options Logout options.
@@ -694,4 +706,11 @@ export interface KeycloakInstance {
    * @private Undocumented.
    */
   parseCallback(url: string): OAuthResponse;
+
+  setToken(
+    token: string | null,
+    refreshToken: string | null,
+    idToken: string | null,
+    timeLocal?: number
+  ): void;
 }

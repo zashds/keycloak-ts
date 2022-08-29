@@ -219,6 +219,20 @@ export class KeycloakClient implements KeycloakInstance {
 
   /**
    * Redirects to login form.
+   * @param username  Username
+   * @param password  Password
+   * @param scope     (Optional) Scope
+   */
+  public async loginWithPasswordGrant(
+    username: string,
+    password: string,
+    scope?: string
+  ): Promise<void> {
+    return this.adapter!.loginWithPasswordGrant(username, password, scope);
+  }
+
+  /**
+   * login with password grant.
    * @param options Login options.
    */
   public async login(options?: KeycloakLoginOptions): Promise<void> {
